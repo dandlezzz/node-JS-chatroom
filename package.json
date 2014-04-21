@@ -1,0 +1,31 @@
+{
+  "name": "nodeChat",
+  "version": "0.0.0",
+  "description": "A basic chat server built with nodejs",
+  "main": "chat.js",
+  "scripts": {
+    "test": "node chat.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dandlezzz/node-JS-chatroom.git"
+  },
+  "keywords": [
+    "node",
+    "js"
+  ],
+  "author": "Daniel Miller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dandlezzz/node-JS-chatroom/issues"
+  },
+  "homepage": "https://github.com/dandlezzz/node-JS-chatroom",
+  "dependencies": {
+    "socket.io": "~0.9.16",
+    "http": "0.0.0",
+    "path": "~0.4.9"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
