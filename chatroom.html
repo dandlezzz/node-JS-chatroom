@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/client.js" type="text/javascript"></script>
         <script type="text/javascript">
             var socketio = io.connect("127.0.0.1:1337");
             socketio.on("message_to_client", function(data) {
-                document.getElementById("chatlog").innerHTML = ("<hr/>" +
-                data['message'] + document.getElementById("chatlog").innerHTML);
+                $("#chatlog").prepend("<div class='message'>" +
+                data['message'] + "</div>");
             
             });
             function sendMessage() {
-                var msg = document.getElementById("message_input").value;
-                socketio.emit("message_to_server", { message : msg});
+                var msg = $("#message_input").val();
+                var username = $('#username').val();
+                socketio.emit("message_to_server", { message : msg,
+                                                     username : username});
             }
         </script>
     </head>
     <body>
+        <div id="chatlog">
+
+        </div>
+
+
+
         <input type="text" id="message_input"/>
-        <button onclick="sendMessage()">send</button>
-        <div id="chatlog"></div>
+        <button onclick="sendMessage()">Say!</button>
+
+        <div id="user">
+            <textarea id='username'>Enter your userame</textarea>
+            <button id='userButton'>Start the chat!</button>
+        </div>
+        
     </body>
 </html>
