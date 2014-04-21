@@ -8,13 +8,12 @@
         <script type="text/javascript">
             var socketio = io.connect("127.0.0.1:1337");
             socketio.on("message_to_client", function(data) {
-                $("#chatlog").prepend("<div class='message'>" +
-                data['message'] + "</div>");
+                $("#chatlog").append("<span class='user'>" + data['username'] +"</span>: " + data['message'] + "</br>");
             
             });
             function sendMessage() {
                 var msg = $("#message_input").val();
-                var username = $('#username').val();
+                user();
                 socketio.emit("message_to_server", { message : msg,
                                                      username : username});
             }
@@ -22,18 +21,14 @@
     </head>
     <body>
         <div id="chatlog">
-
         </div>
-
-
-
-        <input type="text" id="message_input"/>
-        <button onclick="sendMessage()">Say!</button>
-
         <div id="user">
-            <textarea id='username'>Enter your userame</textarea>
+            <label for='username'>Enter your username:</label>
+            <input type ='text' id='username', name='username'></input>
             <button id='userButton'>Start the chat!</button>
         </div>
-        
+          <label for='msg'>Say Something: </label>
+        <input type="text" id="message_input" name="msg"/>
+        <button onclick="sendMessage()">Say!</button>        
     </body>
 </html>

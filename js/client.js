@@ -1,6 +1,13 @@
+var username;
+
 $(document).ready(function(){
 	$('#user').on('click','#userButton',function(){
-		var name = $('#username').val()
+		username = $('#username').val()
 		
 	});
 })
+
+var user = function(){
+	return username;
+}
+
