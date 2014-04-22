@@ -34,7 +34,7 @@ var app = http.createServer(function(request,response){
 			}	
 		});
 			
-}).listen(1337) // is this a free port or would 8080 be better?
+}).listen(process.env.PORT || 3000) // is this a free port or would 8080 be better?
 
 var io = require('socket.io').listen(app); //accepts an http server instance
 
