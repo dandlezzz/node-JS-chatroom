@@ -23,6 +23,7 @@
   "dependencies": {
     "socket.io": "~0.9.16",
     "http": "0.0.0",
+    "mime": "~1.2.7",
     "path": "~0.4.9"
   },
   "engines": {

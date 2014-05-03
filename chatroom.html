@@ -6,7 +6,7 @@
         <script src="/socket.io/socket.io.js"></script>
         <script src="/js/client.js" type="text/javascript"></script>
         <script type="text/javascript">
-            var socketio = io.connect("http://chattynodes.herokuapp.com/");
+            var socketio = io.connect("localhost");
             socketio.on("message_to_client", function(data) {
                 $("#chatlog").append("<span class='user'>" + data['username'] +"</span>: " + data['message'] + "</br>");
             
