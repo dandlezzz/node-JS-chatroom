@@ -52,8 +52,8 @@ var server = http.createServer(function(request,response){
 	serveStatic(response, cache, absPath)
 });
 
-server.listen(3000,function(){
-	console.log('Bring it! 3000')
+server.listen(process.env.PORT,function(){
+	console.log('Bring it!')
 });
 
 //sockets listen
@@ -77,4 +77,4 @@ chatServer.listen(server)
 
 
 
-		
+
