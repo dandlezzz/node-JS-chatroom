@@ -5,7 +5,16 @@ function divSystemContentElement(message){
 	return $('<div></div>').html('<i>' + message + '</i>')
 }
 
-
+function updateChattersInRoom(names){
+	$('#chatters').html('People Here:')
+	$('#chatters').append("<ul class='list'></ul>")
+		console.log('func call')
+		names.forEach(function(chatter){
+			if (chatter !== null){
+			  $('.list').append("<li>" + chatter + "</li>")
+			}
+	  });
+}
 
 function processUserInput(chatApp, socket){
 	var message = $('#send-message').val();
@@ -28,6 +37,9 @@ var socket = io.connect();
 
 $(document).ready(function(){
 	var chatApp = new Chat(socket)
+	socket.on('newNames', function(names){
+		updateChattersInRoom(names.names)
+	});
 	socket.on('nameResult', function(result){
 		var message;
 		if (result.success){

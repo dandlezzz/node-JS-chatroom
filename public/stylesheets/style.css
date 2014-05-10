@@ -8,7 +8,7 @@ a {
 }
 
 #content {
-	width:800px;
+	width:1000px;
 	margin-left:auto;
 	margin-right: auto;
 }
@@ -34,16 +34,17 @@ a {
 	overflow: auto;
 }
 
-#room-list div {
-	border-bottom: 1px solid black;
+#chatters{
+	width:150px;
+	height:300px;
+	overflow: auto;
+	border: 1px solid black;
+	float:left;
 }
 
-#room-list div:hover{
-	background-color: #ddd;
-}
 
 #send-message{
-	width: 700px;
+	width: 850px;
 	margin-bottom: 1em;
 	margin-right: 1em;
 }
